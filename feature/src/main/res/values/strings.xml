@@ -7,5 +7,9 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="equipement">ÉQUIPEMENT</string>
+    <string name="equipement">ÉQUIPEMENTS</string>
+    <string name="consommables">CONSOMMABLES</string>
+    <string name="ressources">RESSOURCES</string>
+    <string name="bestiaire">BESTIAIRE</string>
+    <string name="cosmetiques">COSMÉTIQUES</string>
 </resources>
