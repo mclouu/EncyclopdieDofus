@@ -17,7 +17,7 @@
         android:background="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/thumbnail"
@@ -28,7 +28,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/lvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -41,7 +41,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/date"
+        android:layout_below="@id/lvl"
         android:layout_marginStart="1dp"
         android:layout_toEndOf="@+id/thumbnail"
         android:background="@color/colorGrey" />
