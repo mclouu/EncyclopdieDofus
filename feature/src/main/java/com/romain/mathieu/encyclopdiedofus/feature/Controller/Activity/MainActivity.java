@@ -101,24 +101,22 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         // 6 - Show fragment after user clicked on a menu item
-        switch (id) {
-            case R.id.equipement:
-                this.showFragment(FRAGMENT_EQUIPEMENT);
-                break;
-            case R.id.consommables:
-                this.showFragment(FRAGMENT_CONSOMMABLE);
-                break;
-            case R.id.ressources:
-                this.showFragment(FRAGMENT_RESSOURCE);
-                break;
-            case R.id.cosmetiques:
-                this.showFragment(FRAGMENT_COSMETIQUE);
-                break;
-            case R.id.bestiaire:
-                this.showFragment(FRAGMENT_BESTIAIRE);
-                break;
-            default:
-                break;
+        if (id == R.id.equipement) {
+            this.showFragment(FRAGMENT_EQUIPEMENT);
+
+        } else if (id == R.id.consommables) {
+            this.showFragment(FRAGMENT_CONSOMMABLE);
+
+        } else if (id == R.id.ressources) {
+            this.showFragment(FRAGMENT_RESSOURCE);
+
+        } else if (id == R.id.cosmetiques) {
+            this.showFragment(FRAGMENT_COSMETIQUE);
+
+        } else if (id == R.id.bestiaire) {
+            this.showFragment(FRAGMENT_BESTIAIRE);
+
+        } else {
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
