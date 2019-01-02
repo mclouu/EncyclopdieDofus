@@ -8,6 +8,16 @@
     android:gravity="center"
     tools:context="com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.EquipementFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/equipement_recyclerview"
         android:layout_width="match_parent"
@@ -15,5 +25,7 @@
         android:layout_margin="8dp"
         android:scrollbars="vertical"
         tools:listitem="@layout/item"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
