@@ -3,12 +3,14 @@ package com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.romain.mathieu.encyclopdiedofus.feature.Model.API.EquipementDofus.EquipementDofus;
@@ -22,11 +24,13 @@ import java.util.ArrayList;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
-public class EquipementFragment extends Fragment {
+public class EquipementFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     public static ArrayList<CardData> list = new ArrayList<>();
     Context context;
     RecyclerView recyclerView;
+    ProgressBar mProgressBar;
+    SwipeRefreshLayout mSwipeRefreshLayout;
     private LinearLayoutManager llm;
     private MyAdapter adapter;
     private Disposable disposable;
@@ -46,15 +50,36 @@ public class EquipementFragment extends Fragment {
 
         context = container.getContext();
         recyclerView = view.findViewById(R.id.equipement_recyclerview);
+        mProgressBar = view.findViewById(R.id.progressBar);
+        mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         llm = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(llm);
 
         adapter = new MyAdapter(list);
         recyclerView.setAdapter(adapter);
 
+
+
+        // 2 - Call the stream
         this.executeHttpRequestWithRetrofit();
 
+
         return view;
+    }
+
+    //-----------------------
+    // PULL TO REFRESH
+    //-----------------------
+
+
+    public void onRefresh() {
+        mProgressBar.setVisibility(View.VISIBLE);
+        this.executeHttpRequestWithRetrofit();
+        adapter.notifyDataSetChanged();
+        mSwipeRefreshLayout.setRefreshing(false);
+
     }
 
     //-----------------------
