@@ -13,11 +13,11 @@ public interface DofusService {
     MyConstant constant = new MyConstant();
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://dofapis.herokuapp.com/api/equipments/")
+            .baseUrl(constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
-    @GET("equipments")
+    @GET("equipments/")
     Observable<EquipementDofus> getItemDofus();
 }
