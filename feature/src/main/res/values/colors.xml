@@ -7,9 +7,10 @@
     <color name="colorPrimaryDark">#6ba6ae</color>
     <color name="colorAccent">#cecece</color>
 
-    <color name="colorGrey">#858C93</color>
+    <color name="colorGrey">#CECECE</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWithe">#FFF</color>
+
 
 
     <!-- COLOR VIEWPAGER -->
