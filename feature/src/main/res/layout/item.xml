@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_margin="8dp"
         android:layout_weight="1"
         android:background="@color/colorAccent" />
@@ -33,15 +33,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_weight="1"
-        android:paddingEnd="8dp"
         android:paddingTop="9dp"
+        android:paddingEnd="8dp"
         android:text="lvl 301"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_toEndOf="@+id/thumbnail"
+        android:maxLines="2"
+        android:text="L'épée du Granduk lui est offerte par le Compte Harebourg lors de son adoubement. Elle est le symbole de son rang parmi les Sinistros, et, le Granduk n'ayant pas de mains, ne servira jamais."
         android:textColor="@color/colorBlack" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/lvl"
+        android:layout_below="@id/description"
         android:layout_marginStart="1dp"
         android:layout_toEndOf="@+id/thumbnail"
         android:background="@color/colorGrey" />
