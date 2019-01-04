@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.facebook.stetho.Stetho;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.API.EquipementDofus.EquipementDofus;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.CardData;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.DofusStream;
@@ -21,6 +20,7 @@ import com.romain.mathieu.encyclopdiedofus.feature.R;
 import com.romain.mathieu.encyclopdiedofus.feature.View.MyAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
@@ -35,6 +35,7 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
     private LinearLayoutManager llm;
     private MyAdapter adapter;
     private Disposable disposable;
+    public static List<EquipementDofus> responseBody;
 
     public EquipementFragment() {
         // Required empty public constructor
@@ -55,11 +56,8 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
         mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
-        Stetho.initializeWithDefaults(context);
-
         llm = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(llm);
-
         adapter = new MyAdapter(list);
         recyclerView.setAdapter(adapter);
 
@@ -98,9 +96,10 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
         // 1.2 - Nous appelons depuis la classe DofusStream notre Observable qui va émettre
         //       les données JSON récupérées depuis l'API Dofus grâce à Retrofit
         this.disposable = DofusStream.streamFetchItem().subscribeWith(
-                new DisposableObserver<EquipementDofus>() {
+                new DisposableObserver<List<EquipementDofus>>() {
 
-                    public void onNext(EquipementDofus equipementDofus) {
+                    public void onNext(List<EquipementDofus> equipementDofus) {
+                        Toast.makeText(context, "onNext", Toast.LENGTH_SHORT).show();
                         Log.e("TAG", "onNext");
                         updateUIWithListOfArticle(equipementDofus);
                     }
@@ -111,6 +110,7 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
                     }
 
                     public void onComplete() {
+                        Toast.makeText(context, "On Complete !!", Toast.LENGTH_SHORT).show();
                         Log.e("TAG", "On Complete !!");
                     }
                 });
@@ -127,9 +127,7 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
         //this.textView.setText("Downloading...");
     }
 
-    private void updateUIWithListOfArticle(EquipementDofus response) {
-
-        Log.e("tdb", "On Error \n" + response.getName());
+    private void updateUIWithListOfArticle(List<EquipementDofus> response) {
 
 
         if (list != null) {
@@ -137,15 +135,17 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
         }
 
 
-        for (int i = 0; i < 20; i++) {
-            String name = response.getName();
-            String imageURL = response.getImgUrl();
-            int lvl = response.getLvl();
+        for (int i = 0; i < response.size(); i++) {
+            String name = response.get(i).getName();
+            String imageURL = response.get(i).getImgUrl();
+            int lvl = response.get(i).getLvl();
+            //String description = response.get(i).getDescription();
 
             list.add(new CardData(
                     name + "",
                     lvl + "",
                     imageURL + " "));
+                    //description + ""));
 
         }
 
