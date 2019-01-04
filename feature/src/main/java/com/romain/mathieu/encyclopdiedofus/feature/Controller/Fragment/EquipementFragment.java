@@ -139,13 +139,13 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
             String name = response.get(i).getName();
             String imageURL = response.get(i).getImgUrl();
             int lvl = response.get(i).getLvl();
-            //String description = response.get(i).getDescription();
+            String description = response.get(i).getDescription();
 
             list.add(new CardData(
                     name + "",
                     lvl + "",
-                    imageURL + " "));
-                    //description + ""));
+                    imageURL + " ",
+                    description + ""));
 
         }
 

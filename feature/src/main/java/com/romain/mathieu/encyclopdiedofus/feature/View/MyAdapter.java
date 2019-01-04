@@ -65,12 +65,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.equipementViewHold
         TextView mName;
         TextView mLvl;
         ImageView mImageView;
+        TextView mDescription;
 
         equipementViewHolder(View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.name);
             mLvl = itemView.findViewById(R.id.lvl);
             mImageView = itemView.findViewById(R.id.thumbnail);
+            mDescription = itemView.findViewById(R.id.description);
             context = itemView.getContext();
         }
     }

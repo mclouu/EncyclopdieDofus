@@ -10,13 +10,15 @@ public class CardData {
     private String name;
     private String lvl;
     private String imageURL;
+    private String description;
 
 
-    public CardData(String mName, String mLvl, String mImageURL) {
+    public CardData(String mName, String mLvl, String mImageURL, String mdescription) {
 
         this.name = mName;
         this.imageURL = mImageURL;
         this.lvl = mLvl;
+        this.description = mdescription;
 
     }
 
@@ -31,6 +33,10 @@ public class CardData {
 
     public String getImageURL() {
         return imageURL;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }
