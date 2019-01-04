@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.API.EquipementDofus.EquipementDofus;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.CardData;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.DofusStream;
@@ -54,12 +55,13 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
         mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
+        Stetho.initializeWithDefaults(context);
+
         llm = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(llm);
 
         adapter = new MyAdapter(list);
         recyclerView.setAdapter(adapter);
-
 
 
         // 2 - Call the stream
