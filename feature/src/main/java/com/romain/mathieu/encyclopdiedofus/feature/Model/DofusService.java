@@ -3,6 +3,8 @@ package com.romain.mathieu.encyclopdiedofus.feature.Model;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.romain.mathieu.encyclopdiedofus.feature.Model.API.EquipementDofus.EquipementDofus;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -26,5 +28,5 @@ public interface DofusService {
             .build();
 
     @GET("equipments/")
-    Observable<EquipementDofus> getItemDofus();
+    Observable<List<EquipementDofus>> getItemDofus();
 }
