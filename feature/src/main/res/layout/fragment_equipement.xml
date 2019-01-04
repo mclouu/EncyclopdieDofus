@@ -4,7 +4,7 @@
     android:id="@+id/fragment_news_rootview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDD9CF"
+    android:background="@color/colorGrey"
     tools:context="com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.EquipementFragment">
 
     <ProgressBar
