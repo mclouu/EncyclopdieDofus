@@ -7,9 +7,8 @@
 
     <string name="action_settings">Options</string>
 
-    <string name="equipement">ÉQUIPEMENTS</string>
-    <string name="consommables">CONSOMMABLES</string>
-    <string name="ressources">RESSOURCES</string>
-    <string name="bestiaire">BESTIAIRE</string>
-    <string name="cosmetiques">COSMÉTIQUES</string>
+    <string name="equipements">équipements</string>
+    <string name="montures">Montures</string>
+    <string name="familiers">Familliers</string>
+    <string name="armes">Armes</string>
 </resources>
