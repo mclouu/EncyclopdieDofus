@@ -35,7 +35,6 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
     private LinearLayoutManager llm;
     private MyAdapter adapter;
     private Disposable disposable;
-    public static List<EquipementDofus> responseBody;
 
     public EquipementFragment() {
         // Required empty public constructor
@@ -52,8 +51,8 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
 
         context = container.getContext();
         recyclerView = view.findViewById(R.id.equipement_recyclerview);
-        mProgressBar = view.findViewById(R.id.progressBar);
-        mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+        mProgressBar = view.findViewById(R.id.equipement_progressBar);
+        mSwipeRefreshLayout = view.findViewById(R.id.equipement_swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         llm = new LinearLayoutManager(context);
@@ -88,14 +87,13 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
 
     // 1 - Execute le stream
     private void executeHttpRequestWithRetrofit() {
-//    private void executeHttpRequestWithRetrofit(){
 //        // 1.1 - Update UI
         this.updateUIWhenStartingHTTPRequest();
 //    }
 
         // 1.2 - Nous appelons depuis la classe DofusStream notre Observable qui va émettre
         //       les données JSON récupérées depuis l'API Dofus grâce à Retrofit
-        this.disposable = DofusStream.streamFetchItem().subscribeWith(
+        this.disposable = DofusStream.streamFetchEquipement().subscribeWith(
                 new DisposableObserver<List<EquipementDofus>>() {
 
                     public void onNext(List<EquipementDofus> equipementDofus) {
@@ -134,7 +132,6 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
             list.clear();
         }
 
-
         for (int i = 0; i < response.size(); i++) {
             String name = response.get(i).getName();
             String imageURL = response.get(i).getImgUrl();
@@ -148,6 +145,5 @@ public class EquipementFragment extends Fragment implements SwipeRefreshLayout.O
                     description + ""));
 
         }
-
     }
 }

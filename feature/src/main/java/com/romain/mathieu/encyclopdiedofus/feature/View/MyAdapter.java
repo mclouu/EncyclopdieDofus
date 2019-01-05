@@ -41,6 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.equipementViewHold
 
         holder.mName.setText(Html.fromHtml(object.getName()));
         holder.mLvl.setText(Html.fromHtml((object.getLvl())));
+        holder.mDescription.setText(Html.fromHtml(object.getDescription()));
 
         String url = object.getImageURL();
         Picasso.get()

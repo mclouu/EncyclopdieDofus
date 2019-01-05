@@ -7,36 +7,33 @@
         <item
             android:id="@+id/equipement"
             android:icon="@drawable/equipements"
-            android:title="@string/equipement" />
+            android:title="@string/equipements" />
+
         <item
-            android:id="@+id/consommables"
-            android:icon="@drawable/consommables"
-            android:title="@string/consommables" />
+            android:id="@+id/weapons"
+            android:icon="@drawable/weapons"
+            android:title="@string/armes" />
         <item
-            android:id="@+id/ressources"
-            android:icon="@drawable/ressources"
-            android:title="@string/ressources" />
+            android:id="@+id/pets"
+            android:icon="@drawable/pets"
+            android:title="@string/familiers" />
         <item
-            android:id="@+id/cosmetiques"
-            android:icon="@drawable/cosmetiques"
-            android:title="@string/cosmetiques" />
-        <item
-            android:id="@+id/bestiaire"
-            android:icon="@drawable/bestiaire"
-            android:title="@string/bestiaire" />
+            android:id="@+id/mounts"
+            android:icon="@drawable/mounts"
+            android:title="@string/montures" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>

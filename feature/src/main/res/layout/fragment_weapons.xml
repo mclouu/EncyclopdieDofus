@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_equipement_rootview"
+    android:id="@+id/fragment_weapons_rootview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGrey"
-    tools:context="com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.EquipementFragment">
+    tools:context="com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.WeaponsFragment">
 
     <ProgressBar
-        android:id="@+id/equipement_progressBar"
+        android:id="@+id/weapons_progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/colorOrange"
@@ -16,16 +16,16 @@
         android:layout_centerHorizontal="true" />
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/equipement_swipeRefreshLayout"
+        android:id="@+id/weapons_swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/equipement_progressBar">
+        android:layout_below="@id/weapons_progressBar">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/equipement_recyclerview"
+            android:id="@+id/weapons_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/equipement_progressBar"
+            android:layout_below="@+id/weapons_progressBar"
             android:layout_margin="8dp"
             android:scrollbars="vertical"
             tools:listitem="@layout/item" />

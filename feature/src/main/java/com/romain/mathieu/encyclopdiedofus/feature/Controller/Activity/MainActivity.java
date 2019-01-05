@@ -14,27 +14,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.BestiaireFragment;
-import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.ConsommableFragment;
-import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.CosmetiqueFragment;
 import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.EquipementFragment;
-import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.RessourceFragment;
+import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.MountsFragment;
+import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.PetsFragment;
+import com.romain.mathieu.encyclopdiedofus.feature.Controller.Fragment.WeaponsFragment;
 import com.romain.mathieu.encyclopdiedofus.feature.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Fragment fragmentRessource;
-    private Fragment fragmentConsommable;
+    private Fragment fragmentMounts;
     private Fragment fragmentEquipement;
-    private Fragment fragmentBestiaire;
-    private Fragment fragmentCosmetique;
+    private Fragment fragmentPets;
+    private Fragment weaponsFragment;
 
     public static final int FRAGMENT_EQUIPEMENT = 0;
-    public static final int FRAGMENT_CONSOMMABLE = 1;
-    public static final int FRAGMENT_RESSOURCE = 2;
-    public static final int FRAGMENT_COSMETIQUE = 3;
-    public static final int FRAGMENT_BESTIAIRE = 4;
+    public static final int FRAGMENT_MOUNTS = 2;
+    public static final int FRAGMENT_WEAPONS = 3;
+    public static final int FRAGMENT_PETS = 4;
 
     @Override
 
@@ -104,17 +101,14 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.equipement) {
             this.showFragment(FRAGMENT_EQUIPEMENT);
 
-        } else if (id == R.id.consommables) {
-            this.showFragment(FRAGMENT_CONSOMMABLE);
+        } else if (id == R.id.mounts) {
+            this.showFragment(FRAGMENT_MOUNTS);
 
-        } else if (id == R.id.ressources) {
-            this.showFragment(FRAGMENT_RESSOURCE);
+        } else if (id == R.id.weapons) {
+            this.showFragment(FRAGMENT_WEAPONS);
 
-        } else if (id == R.id.cosmetiques) {
-            this.showFragment(FRAGMENT_COSMETIQUE);
-
-        } else if (id == R.id.bestiaire) {
-            this.showFragment(FRAGMENT_BESTIAIRE);
+        } else if (id == R.id.pets) {
+            this.showFragment(FRAGMENT_PETS);
 
         } else {
         }
@@ -135,17 +129,14 @@ public class MainActivity extends AppCompatActivity
             case FRAGMENT_EQUIPEMENT:
                 this.showEquipementFragment();
                 break;
-            case FRAGMENT_CONSOMMABLE:
-                this.showconsommableFragment();
+            case FRAGMENT_MOUNTS:
+                this.showMountsFragment();
                 break;
-            case FRAGMENT_RESSOURCE:
-                this.showRessourceFragment();
+            case FRAGMENT_WEAPONS:
+                this.showWeaponsFragment();
                 break;
-            case FRAGMENT_COSMETIQUE:
-                this.showcosmetiqueFragment();
-                break;
-            case FRAGMENT_BESTIAIRE:
-                this.showbestiaireFragment();
+            case FRAGMENT_PETS:
+                this.showPetsFragment();
                 break;
             default:
                 break;
@@ -160,28 +151,22 @@ public class MainActivity extends AppCompatActivity
         this.startTransactionFragment(this.fragmentEquipement);
     }
 
-    private void showconsommableFragment() {
-        if (this.fragmentConsommable == null)
-            this.fragmentConsommable = ConsommableFragment.newInstance();
-        this.startTransactionFragment(this.fragmentConsommable);
+    private void showMountsFragment() {
+        if (this.fragmentMounts == null)
+            this.fragmentMounts = MountsFragment.newInstance();
+        this.startTransactionFragment(this.fragmentMounts);
     }
 
-    private void showRessourceFragment() {
-        if (this.fragmentRessource == null)
-            this.fragmentRessource = RessourceFragment.newInstance();
-        this.startTransactionFragment(this.fragmentRessource);
+    private void showWeaponsFragment() {
+        if (this.weaponsFragment == null)
+            this.weaponsFragment = WeaponsFragment.newInstance();
+        this.startTransactionFragment(this.weaponsFragment);
     }
 
-    private void showcosmetiqueFragment() {
-        if (this.fragmentCosmetique == null)
-            this.fragmentCosmetique = CosmetiqueFragment.newInstance();
-        this.startTransactionFragment(this.fragmentCosmetique);
-    }
-
-    private void showbestiaireFragment() {
-        if (this.fragmentBestiaire == null)
-            this.fragmentBestiaire = BestiaireFragment.newInstance();
-        this.startTransactionFragment(this.fragmentBestiaire);
+    private void showPetsFragment() {
+        if (this.fragmentPets == null)
+            this.fragmentPets = PetsFragment.newInstance();
+        this.startTransactionFragment(this.fragmentPets);
     }
 
     // 3 - Generic method that will replace and show a fragment inside the MainActivity Frame Layout
